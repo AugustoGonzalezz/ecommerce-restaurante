@@ -5,13 +5,15 @@ export default function Menu() {
     return (
     <>
         <header>
-        <div className="menu"></div>
+        <div className="Titulo"></div>
         </header>
+        <div className="menu">
         <div className="categorias">
-
+            
         </div>
         <div className="platos">
 
+        </div>
         </div>
     </>
     )
