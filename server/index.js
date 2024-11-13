@@ -31,27 +31,28 @@ API.get("/",(req,res)=>{
     res.send("Hola pupi");
 })
 
-API.get("/platos",(req,res)=>{
-    DB.query("SELECT * FROM restaurante__platos",(err,results)=>{
+API.get("/platos", (req, res) => {
+    DB.query("SELECT * FROM restaurante__platos", (err, results) => {
         if (err) {
-            res.status.json({message:err.message});
+            res.status(500).json({ message: err.message }); // Correct way to set status and send JSON
             return;
         }
         res.json(results);
-    })
-})
+    });
+});
 
-API.get("/categoria_plato/:categoria",(req,res)=>{
+API.get("/categoria_plato/:categoria", (req, res) => {
     console.log(req);
-    const {categoria} = req.params;
-    DB.query("SELECT * FROM restaurante__platos WHERE categoria=?",[categoria],(err,results)=>{
+    const { categoria } = req.params;
+    DB.query("SELECT * FROM restaurante__platos WHERE categoria=?", [categoria], (err, results) => {
         if (err) {
-            res.status.json({message:err.message});
+            res.status(500).json({ message: err.message }); // Correct way to set status and send JSON
             return;
         }
-        if (results=="") {
-            res.json({message:"categoria no encontrada"})
+        if (results.length === 0) { // Fix for checking if results are empty
+            res.status(404).json({ message: "Categoria no encontrada" }); // Send 404 status when no results
+        } else {
+            res.json(results);
         }
-        res.json(results);
-    })
-})
+    });
+});
