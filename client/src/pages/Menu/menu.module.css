@@ -1,0 +1,167 @@
+/* styles.css */
+
+/* Reset de márgenes y paddings */
+
+  
+  /* Estilo del contenedor principal */
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100vw;
+  }
+  
+  /* Menú lateral */
+  .sidebar {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    height: 150px;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .categories {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    flex-wrap: wrap;  /* Permite que las categorías se ajusten a nuevas filas */
+}
+
+  .bienvenida{
+    font-size: 2.5rem;
+    margin-left: 20px;
+  }
+  .categories li {
+    margin: 15px 0;
+  }
+  
+  .categories li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+    padding: 8px;
+    transition: background-color 0.3s;
+  }
+  
+  .categories li a:hover {
+    background-color: #444;
+  }
+  
+  /* Contenedor de productos */
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+  
+  .menu-item {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .menu-item h3 {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  
+  .menu-item p {
+    color: #555;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  .menu-item .price {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+  }
+  .platos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Estilo de cada tarjeta */
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  /* Efecto de hover en las tarjetas */
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Imagen dentro de la tarjeta */
+  .card .im img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #eee;
+  }
+  
+  /* Estilos del texto dentro de la tarjeta */
+  .card .nombre {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px;
+    color: #333;
+  }
+  
+  .card .desc {
+    font-size: 1rem;
+    color: #555;
+    padding: 0 15px 15px;
+  }
+  
+  .card .precio {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e74c3c;
+    padding: 0 15px 15px;
+    margin-top: auto;
+    border-top: 1px solid #eee;
+  }
+  
+  /* Ajustes de estilo para cuando no hay platos (loading) */
+  .platos .loading {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #999;
+  }
