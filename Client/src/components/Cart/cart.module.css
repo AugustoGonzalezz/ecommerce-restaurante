@@ -1,0 +1,63 @@
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.carritoItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.info {
+    margin-top: 10px;
+}
+
+button {
+    background-color: #ff6347;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e55347;
+}
+
+.eliminarBtn {
+    margin-top: 10px;
+}
+
+.total {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.total h3 {
+    font-size: 24px;
+}
+
+.pagoBtn {
+    background-color: #4CAF50;
+    margin-top: 10px;
+}
+
+.pagoBtn:hover {
+    background-color: #45a049;
+}

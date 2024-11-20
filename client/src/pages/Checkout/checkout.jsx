@@ -1,35 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './checkout.module.css'; // Importamos los estilos como módulo CSS
-
+import Header from '../../components/Header/header.jsx'
+import Footer from '../../components/Footer/footer.jsx'
 const Checkout = () => {
+  // Estado para guardar los platos en el carrito
+  const [carrito, setCarrito] = useState([]);
+
+  // Cargar el carrito desde localStorage cuando el componente se monta
+  useEffect(() => {
+    const carritoGuardado = JSON.parse(localStorage.getItem('carrito'));
+    if (carritoGuardado) {
+      setCarrito(carritoGuardado);
+    }
+  }, []);
+
+  // Calcular el total del carrito
+  const total = carrito.reduce((acc, plato) => acc + parseFloat(plato.precio), 0);
+
   return (
     <div className={styles.container}>
+      <Header></Header>
       {/* Columna de los productos en el carrito */}
       <div className={styles.cartSummary}>
         <h2>Resumen de tu pedido</h2>
         <ul>
-          <li>
-            <div className={styles.product}>
-              <span className={styles.productName}>Producto 1</span>
-              <span className={styles.productPrice}>$25.00</span>
-            </div>
-          </li>
-          <li>
-            <div className={styles.product}>
-              <span className={styles.productName}>Producto 2</span>
-              <span className={styles.productPrice}>$15.00</span>
-            </div>
-          </li>
-          <li>
-            <div className={styles.product}>
-              <span className={styles.productName}>Producto 3</span>
-              <span className={styles.productPrice}>$10.00</span>
-            </div>
-          </li>
+          {carrito.length > 0 ? (
+            carrito.map((plato) => (
+              <li key={plato.id}>
+                <div className={styles.product}>
+                  <span className={styles.productName}>{plato.nombre_Plato}</span>
+                  <span className={styles.productPrice}>${plato.precio}</span>
+                </div>
+              </li>
+            ))
+          ) : (
+            <li>No hay productos en el carrito.</li>
+          )}
         </ul>
         <hr />
         <div className={styles.total}>
-          <p><strong>Total:</strong> $50.00</p>
+          <p><strong>Total:</strong> ${total.toFixed(2)}</p>
         </div>
       </div>
 
@@ -60,6 +70,7 @@ const Checkout = () => {
           <button type="submit" className={styles.btn}>Realizar pago</button>
         </form>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

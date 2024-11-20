@@ -32,7 +32,7 @@ API.get("/",(req,res)=>{
 })
 
 API.get("/platos", (req, res) => {
-    DB.query("SELECT * FROM restaurante__platos", (err, results) => {
+    DB.query("SELECT * FROM restaurante__platos LIMIT 10", (err, results) => {
         if (err) {
             res.status(500).json({ message: err.message }); // Correct way to set status and send JSON
             return;

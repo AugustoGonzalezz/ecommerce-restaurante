@@ -6,7 +6,7 @@ const Header = ({ cartItemCount }) => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <h1>Restaurante Delicioso</h1>
+        <h1>Mirador Nocturno</h1>
       </div>
       <div className={styles.cart}>
         <FaShoppingCart className={styles.cartIcon} />
